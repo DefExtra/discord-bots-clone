@@ -40,7 +40,7 @@ const quick_db_1 = require("quick.db");
 const discord_js_1 = require("discord.js");
 const node_fs_1 = __importDefault(require("node:fs"));
 // load the config file
-const config = JSON.parse(node_fs_1.default.readFileSync("config.def", { encoding: "utf-8" }));
+const config = JSON.parse(node_fs_1.default.readFileSync(__dirname+"/config.def", { encoding: "utf-8" }));
 // connecting the database
 const db = new quick_db_1.QuickDB({ filePath: "def.database.sqlite" });
 // create a new discord.js client

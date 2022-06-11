@@ -23,6 +23,9 @@ exports.default = {
             return message.reply({
                 content: `منشن اللي تبي تزرفه!`,
             });
+        if (user.id == message.author.id) return message.reply({
+                content: `> اوكيه قلنا انك غبي بس تنهب نفسك! جديده هذي :joy:`,
+            });
         if (Number(yield db.get(`credits_${user.user.id}`)) < 3000)
             return message.reply({
                 content: `ماتقدر تنهب احد رصيده اقل من 3000$`,
