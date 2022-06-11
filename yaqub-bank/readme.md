@@ -1,1 +1,0 @@
-your config in `config.def` file
