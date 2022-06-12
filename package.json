@@ -1,0 +1,20 @@
+{
+  "name": "probot-music-system",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx node ."
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/rest": "^0.5.0",
+    "better-sqlite3": "^7.5.3",
+    "discord-api-types": "^0.33.5",
+    "discord.js": "^13.8.0",
+    "erela.js": "^2.3.3",
+    "fs": "^0.0.1-security",
+    "ms": "^2.1.3",
+    "parse-ms": "^2.1.0",
+    "quick.db": "^9.0.3",
+    "string-progressbar": "^1.0.4"
+  }
+}
