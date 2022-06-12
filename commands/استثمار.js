@@ -19,7 +19,7 @@ exports.default = {
     run: (client, message, args, db) => __awaiter(void 0, void 0, void 0, function* () {
         var _a, _b, _c, _d, _e, _f, _g, _h;
         let timeout = 900000;
-        let daily = yield db.get(`nard_${message.author.id}`);
+        let daily = yield db.get(`asthmar_${message.author.id}`);
         if (daily !== null && timeout - (Date.now() - daily) > 0) {
             let time = (0, parse_ms_1.default)(timeout - (Date.now() - daily));
             message.reply({
@@ -50,6 +50,7 @@ exports.default = {
                 var num = parseFloat(balance);
                 var bal = num + num * deg;
                 var degString = yield degTOstring(deg);
+                yield db.set(`asthmar_${message.author.id}`, new Date());
                 yield db.add(`credits_${message.author.id}`, bal + Number(balance));
                 yield message.reply({
                     embeds: [
@@ -76,6 +77,7 @@ exports.default = {
                 var num = parseFloat(balance);
                 var bal = num + num * deg;
                 var degString = yield degTOstring(deg);
+                yield db.set(`asthmar_${message.author.id}`, new Date());
                 if (bal + Number(balance) >
                     Number(yield db.get(`credits_${message.author.id}`)))
                     yield db.set(`credits_${message.author.id}`, 0);
