@@ -72,7 +72,7 @@ module.exports = {
         },
         isSlash
       );
-    await player?.pause(true);
+    await player?.pause(false);
     respond(
       interaction,
       message,
