@@ -95,7 +95,7 @@ module.exports = {
           }]\`:loud_sound:`,
         },
       ],
-    });
+    }, isSlash);
   },
 };
 
