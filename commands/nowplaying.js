@@ -4,9 +4,6 @@ const { Client } = require("undici");
 const ms = require("parse-ms");
 const { respond, editRespond } = require("../components/respond");
 const { readFileSync } = require("fs");
-const config = JSON.parse(
-  readFileSync(process.cwd() + "/config.def", { encoding: "utf-8" })
-);
 const progressbar = require("string-progressbar");
 
 module.exports = {
@@ -78,7 +75,7 @@ module.exports = {
                 : message.author?.avatarURL({ dynamic: true }) || "",
           },
           title: `**${player?.queue?.current.title}**`,
-          description: `${player.paused ? "▶️" : "⏸️"} ${
+          description: `${player.paused == false ? "▶️" : "⏸️"} ${
             progressbar.splitBar(dur, postion, 12)[0]
           } \`[${
             ms(postion).minutes
