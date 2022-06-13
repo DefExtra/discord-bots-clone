@@ -109,17 +109,17 @@ client.on("ready", async () => {
       );
       if (!channel || channel == null) return;
       let player = await manager.players.get(guild.id);
-      if (player) {
+      if (!player) {
         try {
-          if (player.state !== "CONNECTED") await player.connect();
-          await player.connect();
+          let p = await manager.create({
+           guild: guild.id,
+           voiceChannel: channel.id,
+            textChannel: guild.channels.cache.first().id,
+          });
+          await p.connect();
         } catch (err) {}
       } else {
-        await manager.create({
-          guild: guild.id,
-          voiceChannel: channel.id,
-          textChannel: guild.channels.cache.first().id,
-        });
+        if (player.state !== "CONNECTED") await player.connect();
       }
     });
   }, 1000 * 5);
